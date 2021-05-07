@@ -21,7 +21,7 @@ namespace Cognome_Semaforo_Bin
                 t2.Start();
                 while(t1.IsAlive) { }
                 while(t2.IsAlive) { }
-                Console.WriteLine($"{n}");
+                Console.WriteLine($"n = {n}");
                 Console.ReadLine();
             }
         }
