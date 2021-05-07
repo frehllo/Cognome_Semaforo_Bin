@@ -10,6 +10,7 @@ namespace Cognome_Semaforo_Bin
     class Program
     {
         static int n;
+        static SemaphoreSlim s = new SemaphoreSlim(1);
         static void Main(string[] args)
         {
             while(true)
@@ -30,7 +31,9 @@ namespace Cognome_Semaforo_Bin
         {
             for(int i = 0; i <= 1000000; i++)
             {
-                n++; 
+                s.Wait();
+                n++;
+                s.Release();
             }
         }
 
@@ -38,7 +41,9 @@ namespace Cognome_Semaforo_Bin
         {
             for (int i = 0; i <= 1000000; i++)
             {
+                s.Wait();
                 n--;
+                s.Release();
             }
         }
     }
